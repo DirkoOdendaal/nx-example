@@ -1,0 +1,30 @@
+<mat-card *ngIf="customer$ | async as customer">
+    <mat-card-title>
+      {{ customer.name }}
+    </mat-card-title>
+    <mat-card-content class="content">
+      <img
+        class="customer-image"
+        src="{{ customer.image }}"
+        alt="Picture of customer {{ customer.name }}"
+      />
+      <div class="details">
+        <p>{{ customer.name }} {{ customer.surname }}</p>
+        <div class="sell-info">
+          <span
+            ><span style="font-weight: bold;">Age:</span>
+            {{ customer.age }}</span
+          >
+          <span>
+            <span style="font-weight: bold;">Country:</span>
+            {{ customer.country }}
+          </span>
+        </div>
+        <div>
+          <button mat-raised-button class="buy-button">BUY</button>
+          <button mat-raised-button>SHARE</button>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  

@@ -1,31 +1,36 @@
 {
-  "npmScope": "nx-example",
-  "affected": {
-    "defaultBase": "master"
-  },
   "implicitDependencies": {
     "workspace.json": "*",
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
-    },
+    "package.json": { "dependencies": "*", "devDependencies": "*" },
     "tsconfig.base.json": "*",
     "tslint.json": "*",
     ".eslintrc.json": "*",
     "nx.json": "*"
   },
+  "affected": { "defaultBase": "master" },
+  "npmScope": "nx-example",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
-      "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ]
-      }
+      "options": { "cacheableOperations": ["build", "lint", "test", "e2e"] }
     }
   },
-  "projects": {}
+  "projects": {
+    "customer-site": { "tags": [] },
+    "customer-site-e2e": {
+      "tags": [],
+      "implicitDependencies": ["customer-site"]
+    },
+    "employee-site": { "tags": [] },
+    "employee-site-e2e": {
+      "tags": [],
+      "implicitDependencies": ["employee-site"]
+    },
+    "api": { "tags": [] },
+    "ui-shared": { "tags": [] },
+    "customer-ui": { "tags": [] },
+    "employee-ui": { "tags": [] },
+    "util-interface": { "tags": [] },
+    "customer-util-formatters": { "tags": [] }
+  }
 }

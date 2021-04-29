@@ -1,0 +1,30 @@
+<nx-example-header title="{{ title }}"></nx-example-header>
+
+<div class="container">
+  <div class="items-layout">
+    <mat-card
+      class="item-card"
+      *ngFor="let item of items | async"
+      [routerLink]="['/items', item.id]"
+    >
+      <mat-card-header class="center-content">
+        <mat-card-title>{{ item.name }}</mat-card-title>
+      </mat-card-header>
+      <img
+        mat-card-image
+        src="{{ item.image }}"
+        alt="Photo of item {{ item.name }}"
+      />
+      <mat-card-content>
+        <p>
+          {{ item.description }}
+        </p>
+        <span>
+          <span style="font-weight: bold;">Rating:</span>
+          {{ formatRating(item.rating) }}
+        </span>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <router-outlet></router-outlet>
+</div>

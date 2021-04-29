@@ -1,0 +1,30 @@
+<nx-example-header title="{{ title }}"></nx-example-header>
+
+<div class="container">
+  <div class="customers-layout">
+    <mat-card
+      class="customer-card"
+      *ngFor="let customer of customers | async"
+      [routerLink]="['/customers', customer.id]"
+    >
+      <mat-card-header class="center-content">
+        <mat-card-title>{{ customer.name }} {{ customer.surname}}</mat-card-title>
+      </mat-card-header>
+      <img
+        mat-card-image
+        src="{{ customer.image }}"
+        alt="Photo of customer {{ customer.name }}"
+      />
+      <mat-card-content>
+        <p>
+          {{ customer.country }}
+        </p>
+        <span>
+          <span style="font-weight: bold;">Age:</span>
+          {{ customer.age }}
+        </span>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <router-outlet></router-outlet>
+</div>
